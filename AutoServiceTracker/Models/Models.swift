@@ -71,6 +71,15 @@ final class ServiceRecord {
         get { ServiceType(rawValue: typeRaw) ?? .other }
         set { typeRaw = newValue.rawValue }
     }
+
+    /// Everything you wrote about this service in one block. Older entries kept
+    /// "what was done" and "what you used" separately, so those get folded in.
+    var allNotes: String {
+        [workDone, partsUsed, notes]
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+            .joined(separator: "\n")
+    }
 }
 
 extension ServiceRecord: ServiceEntry {}

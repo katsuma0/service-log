@@ -75,21 +75,21 @@ enum ServiceType: String, CaseIterable, Identifiable, Codable {
         }
     }
 
-    /// Hint shown in the "What you used" field so you remember to log the useful details.
-    var partsPrompt: String {
+    /// Example shown in the Notes box so you remember the useful details.
+    var notesPrompt: String {
         switch self {
-        case .oilChange: "Oil brand, grade and amount, filter. e.g. Castrol Edge 5W-30, 4.5 L, OEM filter"
-        case .tireChange: "Tire brand, model, size, wheels. e.g. Michelin CrossClimate 2, 225/45R17"
-        case .tireRotation: "Pattern, tire pressure. e.g. Front to back, 35 psi"
-        case .alignment: "Type of alignment. e.g. 4-wheel alignment"
-        case .brakes: "Pads, rotors, fluid. e.g. Akebono ceramic pads, front"
-        case .airFilter, .cabinFilter: "Filter brand and part number"
-        case .battery: "Brand, group size, CCA. e.g. Interstate H6, 760 CCA"
-        case .wipers: "Brand and lengths. e.g. Bosch Icon 26\" + 18\""
-        case .coolant: "Coolant type and amount"
-        case .transmission: "Fluid type and amount"
-        case .sparkPlugs: "Plug brand and part number"
-        case .inspection, .carWash, .other: "Anything you used or replaced"
+        case .oilChange: "e.g. Synthetic 5W-30, 4.5 L, new filter"
+        case .tireChange: "e.g. Michelin CrossClimate 2, 225/45R17"
+        case .tireRotation: "e.g. Front to back, set to 35 psi"
+        case .alignment: "e.g. 4-wheel alignment"
+        case .brakes: "e.g. New front pads and rotors"
+        case .airFilter, .cabinFilter: "e.g. Fram filter, part CA10171"
+        case .battery: "e.g. Interstate H6, 760 CCA"
+        case .wipers: "e.g. Bosch Icon 26 and 18 inch"
+        case .coolant: "e.g. Flushed, 6 L Dexcool"
+        case .transmission: "e.g. Fluid change, ATF+4"
+        case .sparkPlugs: "e.g. NGK Iridium, set of 4"
+        case .inspection, .carWash, .other: "e.g. What was done and what you used"
         }
     }
 }

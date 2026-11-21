@@ -94,7 +94,7 @@ struct GarageView: View {
             }
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("Odometer")
+                Text("Last serviced odo")
                     .font(.caption.weight(.semibold))
                     .textCase(.uppercase)
                     .foregroundStyle(.white.opacity(0.75))

@@ -20,22 +20,20 @@ struct RecordDetailView: View {
                         .shadow(color: record.type.tint.opacity(0.35), radius: 14, y: 6)
                     Text(record.type.title)
                         .font(.title.bold())
-                    Text(record.date.formatted(.dateTime.weekday(.wide).month(.wide).day().year().hour().minute()))
+                    Text(record.date.formatted(.dateTime.weekday(.wide).month(.wide).day().year()))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
                 .padding(.top, 8)
 
                 HStack(spacing: 12) {
-                    statCard("Odometer", record.odometerKm.map { unit.format(km: $0) } ?? "Not logged")
+                    statCard("Serviced odo", record.odometerKm.map { unit.format(km: $0) } ?? "Not logged")
                     statCard("Price", record.cost > 0 ? Currency.format(record.cost, code: currency) : "Free")
                 }
 
                 VStack(spacing: 0) {
                     detail("Where", record.place, icon: "mappin.and.ellipse")
-                    detail("What was done", record.workDone, icon: "wrench.adjustable")
-                    detail("What you used", record.partsUsed, icon: "shippingbox")
-                    detail("Notes", record.notes, icon: "note.text")
+                    detail("Notes", record.allNotes, icon: "note.text")
                 }
                 .card()
 
@@ -50,7 +48,7 @@ struct RecordDetailView: View {
                     .buttonBorderShape(.capsule)
                     .controlSize(.large)
 
-                    Text("Starts a new entry with the same shop and parts filled in.")
+                    Text("Starts a new entry with the same shop and notes filled in.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
 

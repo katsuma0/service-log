@@ -101,6 +101,10 @@ final class PersistenceTests: XCTestCase {
         XCTAssertEqual(car.subtitle, "2019 Honda Civic")
         XCTAssertEqual(oil.type, .oilChange)
 
+        oil.workDone = "Oil change"
+        oil.notes = "  Next due 88,000 km "
+        XCTAssertEqual(oil.allNotes, "Oil change\nCastrol Edge 5W-30\nNext due 88,000 km")
+
         context.delete(car)
         try context.save()
         XCTAssertEqual(try context.fetchCount(FetchDescriptor<ServiceRecord>()), 0)
